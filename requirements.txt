@@ -16,7 +16,7 @@ pydantic[email]==2.7.1
 pydantic-settings==2.2.1
 
 # ── AI / Data Science ──────────────────────────────────────────────
-pandas==2.2.2
+pandas==3.0.3
 scikit-learn==1.5.0
 numpy==1.26.4
 
