@@ -24,6 +24,9 @@ from routes import (
     monitoring_router,
 )
 
+import os
+print("🔍 DATABASE_URL =", os.getenv("DATABASE_URL", "NOT SET"))
+
 # ── App Init ──────────────────────────────────────────────────────────────────
 app = FastAPI(
     title="Boutiquely AI API",
