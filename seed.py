@@ -1,8 +1,8 @@
 """
 Seed Script — populate Boutiquely AI with realistic demo data
 =============================================================
-Run from the PROJECT ROOT (boutiquely-ai/):
-    python -m backend.seed
+Run from the repo root:
+    python seed.py
 
 Creates:
   - 2 users (admin + cashier)
@@ -10,15 +10,15 @@ Creates:
   - 10 sample orders
 """
 import sys, os
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
-from backend.database.db import SessionLocal, engine, Base
-import backend.models  # register all models
+from database.db import SessionLocal, engine, Base
+import models  # register all models
 
-from backend.models.user import User, UserRole
-from backend.models.product import Product
-from backend.models.order import Order, OrderItem, OrderStatus
-from backend.auth.jwt_handler import hash_password
+from models.user import User, UserRole
+from models.product import Product
+from models.order import Order, OrderItem, OrderStatus
+from auth.jwt_handler import hash_password
 
 Base.metadata.create_all(bind=engine)
 
@@ -114,7 +114,7 @@ def seed():
         print("   👤 Cashier: cashier@boutiquely.com / cashier123")
         print(f"   📦 {len(PRODUCTS)} products created")
         print("   🛒 10 sample orders created")
-        print("\n🚀 Start the backend: uvicorn backend.main:app --reload")
+        print("\n🚀 Start the backend: uvicorn main:app --reload")
 
     except Exception as e:
         db.rollback()

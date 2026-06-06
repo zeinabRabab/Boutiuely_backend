@@ -10,10 +10,10 @@ from fastapi.responses import JSONResponse
 import time
 
 # Import all models so SQLAlchemy registers metadata before create_all
-import backend.models # instead of import backend.models
+import models
 
-from backend.database.db import engine, Base
-from backend.routes import (
+from database.db import engine, Base
+from routes import (
     auth_router,
     user_router,
     product_router,
@@ -78,8 +78,8 @@ async def monitor_requests(request: Request, call_next):
     duration_ms = round((time.time() - start_time) * 1000, 2)
 
     try:
-        from backend.services.monitoring_service import log_api_request
-        from backend.database.db import SessionLocal
+        from services.monitoring_service import log_api_request
+        from database.db import SessionLocal
         db = SessionLocal()
         try:
             log_api_request(
@@ -127,16 +127,14 @@ def health():
 @app.on_event("startup")
 async def auto_seed():
     """Auto-seed demo data on first startup if DB is empty."""
-    from backend.database.db import SessionLocal
-    from backend.models.user import User
+    from database.db import SessionLocal
+    from models.user import User
     db = SessionLocal()
     try:
         user_count = db.query(User).count()
         if user_count == 0:
-            import sys, os
-            sys.path.insert(0, os.path.dirname(os.path.dirname(__file__)))
             try:
-                from backend.seed import seed
+                from seed import seed
                 seed()
             except Exception as e:
                 print(f"⚠️  Auto-seed failed (non-critical): {e}")
@@ -149,7 +147,7 @@ async def auto_seed():
 async def run_migrations():
     """Add new columns to existing databases without breaking existing data."""
     from sqlalchemy import text
-    from backend.database.db import engine
+    from database.db import engine
     with engine.connect() as conn:
         try:
             # Add alert_threshold if it doesn't exist
