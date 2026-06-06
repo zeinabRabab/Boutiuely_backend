@@ -2,11 +2,11 @@ from typing import List, Optional
 from fastapi import APIRouter, Depends, Query
 from sqlalchemy.orm import Session
 
-from backend.database import get_db
-from backend.auth import get_current_user, require_admin
-from backend.models.user import User
-from backend.schemas import OrderCreate, OrderStatusUpdate, OrderResponse
-from backend.services import create_order, get_my_orders, get_all_orders, update_order_status
+from database import get_db
+from auth import get_current_user, require_admin
+from models.user import User
+from schemas import OrderCreate, OrderStatusUpdate, OrderResponse
+from services import create_order, get_my_orders, get_all_orders, update_order_status
 
 router = APIRouter(prefix="/orders", tags=["Orders"])
 

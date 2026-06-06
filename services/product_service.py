@@ -2,9 +2,9 @@ from typing import List, Optional
 from sqlalchemy.orm import Session
 from fastapi import HTTPException, status
 
-from backend.models.product import Product
-from backend.models.order import OrderItem
-from backend.schemas import ProductCreate, ProductUpdate, ProductResponse
+from models.product import Product
+from models.order import OrderItem
+from schemas import ProductCreate, ProductUpdate, ProductResponse
 
 
 def create_product(payload: ProductCreate, db: Session) -> ProductResponse:

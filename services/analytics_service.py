@@ -11,11 +11,11 @@ from typing import List
 from sqlalchemy.orm import Session
 from sqlalchemy import func
 
-from backend.models.user import User
-from backend.models.product import Product
-from backend.models.order import Order, OrderItem, OrderStatus
-from backend.models.monitoring import APILog, ActivityLog
-from backend.schemas import (
+from models.user import User
+from models.product import Product
+from models.order import Order, OrderItem, OrderStatus
+from models.monitoring import APILog, ActivityLog
+from schemas import (
     DashboardStats, TopProduct, RevenuePoint, OrderStatusCount, AnalysisReport,
 )
 

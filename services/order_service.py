@@ -2,10 +2,10 @@ from typing import List, Optional
 from sqlalchemy.orm import Session, joinedload
 from fastapi import HTTPException
 
-from backend.models.order import Order, OrderItem, OrderStatus
-from backend.models.product import Product
-from backend.models.user import User
-from backend.schemas import OrderCreate, OrderStatusUpdate, OrderResponse
+from models.order import Order, OrderItem, OrderStatus
+from models.product import Product
+from models.user import User
+from schemas import OrderCreate, OrderStatusUpdate, OrderResponse
 
 
 def create_order(payload: OrderCreate, current_user: User, db: Session) -> OrderResponse:

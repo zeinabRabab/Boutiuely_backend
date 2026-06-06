@@ -1,11 +1,11 @@
 from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
 
-from backend.database import get_db
-from backend.auth import require_admin
-from backend.models.user import User
-from backend.schemas import SystemReport
-from backend.services import get_system_report
+from database import get_db
+from auth import require_admin
+from models.user import User
+from schemas import SystemReport
+from services import get_system_report
 
 router = APIRouter(prefix="/system-report", tags=["Monitoring"])
 

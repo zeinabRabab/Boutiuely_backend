@@ -3,15 +3,15 @@ from fastapi import APIRouter, Depends, Query, UploadFile, File, HTTPException
 from sqlalchemy.orm import Session
 import csv, io
 
-from backend.database import get_db
-from backend.auth import require_admin, get_current_user
-from backend.models.user import User
-from backend.models.product import Product
-from backend.schemas import (
+from database import get_db
+from auth import require_admin, get_current_user
+from models.user import User
+from models.product import Product
+from schemas import (
     ProductCreate, ProductUpdate, ProductResponse,
     LowStockProduct, BulkImportResult, BulkImportRow,
 )
-from backend.services import (
+from services import (
     create_product, get_all_products, get_product_by_id, update_product, delete_product,
 )
 

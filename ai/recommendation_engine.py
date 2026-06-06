@@ -15,8 +15,8 @@ import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 
-from backend.models.product import Product
-from backend.schemas import ProductResponse
+from models.product import Product
+from schemas import ProductResponse
 
 
 def _build_feature_string(product: Product) -> str:

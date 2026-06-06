@@ -2,11 +2,11 @@ from typing import List
 from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
 
-from backend.database import get_db
-from backend.schemas import UserResponse, UserRegister
-from backend.auth import require_admin, get_current_user, hash_password
-from backend.models.user import User
-from backend.services import get_all_users, get_user_by_id, delete_user
+from database import get_db
+from schemas import UserResponse, UserRegister
+from auth import require_admin, get_current_user, hash_password
+from models.user import User
+from services import get_all_users, get_user_by_id, delete_user
 from fastapi import HTTPException
 
 router = APIRouter(prefix="/users", tags=["Users"])

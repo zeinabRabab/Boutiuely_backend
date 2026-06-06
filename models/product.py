@@ -3,7 +3,7 @@ Product model — extended with AI recommendation fields and stock alert thresho
 """
 from sqlalchemy import Column, Integer, String, Float, Text
 from sqlalchemy.orm import relationship
-from backend.database.db import Base
+from database.db import Base
 
 
 class Product(Base):

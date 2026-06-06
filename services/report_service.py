@@ -11,7 +11,7 @@ from datetime import datetime
 from typing import Tuple
 from sqlalchemy.orm import Session
 
-from backend.services.analytics_service import (
+from services.analytics_service import (
     get_dashboard_stats,
     get_top_products,
     get_revenue_trend,

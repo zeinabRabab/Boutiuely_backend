@@ -2,9 +2,9 @@ from typing import List
 from fastapi import APIRouter, Depends, Query
 from sqlalchemy.orm import Session
 
-from backend.database import get_db
-from backend.schemas import ProductResponse
-from backend.ai import get_recommendations
+from database import get_db
+from schemas import ProductResponse
+from ai import get_recommendations
 
 router = APIRouter(prefix="/recommendations", tags=["Recommendations"])
 

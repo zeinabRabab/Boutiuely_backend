@@ -1,15 +1,15 @@
 from fastapi import APIRouter, Depends, Query
 from sqlalchemy.orm import Session
 
-from backend.database import get_db
-from backend.auth import require_admin
-from backend.models.user import User
-from backend.schemas import DashboardStats, AnalysisReport
-from backend.services import (
+from database import get_db
+from auth import require_admin
+from models.user import User
+from schemas import DashboardStats, AnalysisReport
+from services import (
     get_dashboard_stats, get_top_products, get_revenue_trend,
     get_order_status_breakdown, generate_full_analysis,
 )
-from backend.services.analytics_service import (
+from services.analytics_service import (
     get_category_breakdown, get_user_growth, get_inventory_summary
 )
 

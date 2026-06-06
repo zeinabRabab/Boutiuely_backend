@@ -2,8 +2,8 @@ from typing import List
 from sqlalchemy.orm import Session
 from fastapi import HTTPException
 
-from backend.models.user import User
-from backend.schemas import UserResponse
+from models.user import User
+from schemas import UserResponse
 
 
 def get_all_users(db: Session) -> List[UserResponse]:

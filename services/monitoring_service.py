@@ -8,8 +8,8 @@ from sqlalchemy.orm import Session
 from sqlalchemy import func
 from datetime import datetime, timedelta
 
-from backend.models.monitoring import APILog, ActivityLog
-from backend.schemas import SystemReport
+from models.monitoring import APILog, ActivityLog
+from schemas import SystemReport
 
 
 def log_api_request(

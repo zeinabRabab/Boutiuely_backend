@@ -2,10 +2,10 @@ from fastapi import APIRouter, Depends
 from fastapi.responses import Response
 from sqlalchemy.orm import Session
 
-from backend.database import get_db
-from backend.auth import require_admin
-from backend.models.user import User
-from backend.services import generate_csv_report, generate_pdf_report
+from database import get_db
+from auth import require_admin
+from models.user import User
+from services import generate_csv_report, generate_pdf_report
 
 router = APIRouter(prefix="/reports", tags=["Reports"])
 

@@ -6,7 +6,7 @@ Monitoring models:
 from sqlalchemy import Column, Integer, String, Float, ForeignKey, DateTime, Boolean
 from sqlalchemy.orm import relationship
 from sqlalchemy.sql import func
-from backend.database.db import Base
+from database.db import Base
 
 
 class ActivityLog(Base):
